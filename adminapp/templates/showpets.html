@@ -1,0 +1,80 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block title %}Showpets{% endblock %}
+{% block content %}
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+
+
+<div class="container">
+    <div class="content-2">
+        <div class="row align-items-center">
+    
+            <div class="recent-payments">
+                <div class="title" style="margin-left: 560px;">
+                    <h2>Show Pets</h2>
+                </div>
+                <table style="margin-left: 400px;">
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Name</th>                
+                        <th>Category</th> 
+                        <th>Breed</th>       
+                        <th>Gender</th>               
+                        <th>Age</th>               
+                        <th>Size</th>               
+                        <th>Weight</th>               
+                        <th>Health</th>               
+                        <th>Location</th>               
+                        <th>Image1</th>               
+                        <th>Image2</th>               
+                        <th>Contact_No</th>               
+                        <th>Description</th>               
+                        <th>Price</th>               
+                        <th>Uploaded_at</th>
+                        <th colspan="2">Options</th>
+
+                    </tr>
+                    {% for pet in pet %}
+                    <tr>
+                        <td>{{pet.id}}</td>
+                        <td>{{pet.Username}}</td>
+                        <td>{{pet.Name}}</td>
+                        <td>{{pet.Category}}</td>
+                        <td>{{pet.Breed}}</td>
+                        <td>{{pet.Gender}}</td>
+                        <td>{{pet.Age}}</td>
+                        <td>{{pet.Size}}</td>
+                        <td>{{pet.Weight}}</td>
+                        <td>{{pet.Health}}</td>
+                        <td>{{pet.Location}}</td>
+                        <td><img src="{{pet.Photo1.url}}" width="200px"></td>
+                        <td><img src="{{pet.Photo2.url}}" width="200px"></td>
+                        <td>{{pet.Contact_No}}</td>
+                        <td>{{pet.Description}}</td>
+                        <td>{{pet.Price}} Rs</td>
+                        <td>{{pet.Uploaded_at}}</td>
+
+                        <td><a class="btn" href="{% url 'adminapp:admin_deletepet' pet.id %}">Delete</a></td>
+                        <td><a class="btn" href="{% url 'adminapp:adminupdatepet' pet.id %}">Update</a></td>
+                        
+
+                        
+                    </tr>
+                    {% endfor %}
+                </table>
+                 
+                <br><br>
+                <a href="{% url 'adminapp:dashboard'  %}" class="btn" style="margin-left: 1000px;">Back</a>
+                <span><a href="{% url 'adminapp:showpets'  %}" class="btn">Save</a></span>
+            </div>
+        </div>
+    </div>
+</div>
+        
+   
+
+
+{% endblock %}

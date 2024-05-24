@@ -1,0 +1,50 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block title %}Show users{% endblock %}
+{% block content %}
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+
+
+<div class="container">
+    
+        <div class="row align-items-center">
+    
+            <div class="recent-payments">
+                <div class="title" style="margin-left: 560px;">
+                    <h2>Show Users</h2>
+                </div>
+                <table style="margin-left: 600px;">
+                    <tr>
+                        <th>ID</th>
+                        <th>FirstName</th>        
+                        <th>LastName</th>        
+                        <th>Phone_Number</th>        
+                        <th>Email</th>               
+                        <th colspan="2">Options</th>               
+                    </tr>
+                    {% for user in user %}
+                    <tr>
+                        <td>{{user.id}}</td>
+                        <td>{{user.FirstName}}</td>
+                        <td>{{user.LastName}}</td>
+                        <td>{{user.Phone_Number}}</td>
+                        <td>{{user.Email}}</td>
+                        <td><a class="btn" href="{% url 'adminapp:adminupdatebuyer' user.id %}">Update</a></td>
+                        <td><a class="btn" href="{% url 'adminapp: admindeleteuser' user.id %}">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                    
+                    <br><br>
+                    <a href="{% url 'adminapp:dashboard'  %}" class="btn" style="margin-left: 1000px;">Back</a>
+                    <span><a href="{% url 'adminapp:showusers'  %}" class="btn">Save</a></span>
+            </div>
+        </div>
+    
+</div>
+        
+   
+
+{% endblock %}

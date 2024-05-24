@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <style>
+    .dropdown {
+    position: relative;
+    display: inline-block;
+    }
+
+    .dropdown-content {
+    display: none;
+    position:absolute;
+    width:150px;
+    z-index: 1;
+    background-color: rgb(202, 191, 191);
+    }
+
+    .dropdown:hover .dropdown-content {
+    display: block;
+    }
+
+    .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 30px;
+    font-size: 16px;
+    border: none;
+    }
+
+    .dropdown-content a {
+    color: white;
+    padding: 5px 5px;
+    text-decoration: none;
+    display: block;
+    }
+
+    .dropdown-content a:hover {
+    background-color: #f1f1f1;
+    }
+
+  </style>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    <title>{% block title %}Welcome to Critterville{% endblock %}</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}">
+    <!-- Bootstrap + Meyawo main styles -->
+	<link rel="stylesheet" href="{% static 'assets/css/meyawo.css' %}">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- Page Navbar -->
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20" style="background-color:rgb(156, 182, 207); height:70px;">
+        
+            <a class="logo" href="#" style="font-size: 40px; margin-left: 150px;">Critterville</a>         
+            <ul class="nav">
+                <li class="item">
+                    <a class="active-menu" style="font-size: 20px;" href="#">Home</a>
+                </li>
+                
+                <li class="item">
+                    <a class="link" style="font-size: 20px;" href="#about" >About Us</a>
+                </li>
+                <li class="item">
+                    <a class="link" style="font-size: 20px;" href="#contact">Contact Us</a>
+                </li>
+                <li class="item">
+                    <div class="dropdown">
+                        <a class="link" style="font-size: 20px;" href="#">Settings</a>
+                        <div class="dropdown-content" style="border:1px solid rgb(76, 110, 139);">
+                            <a href="{% url 'seller:listed_products' user.id %}" style="font-size: 15px;">View Pets</a>
+                            
+                            
+                        </div>
+                    </div>     
+                </li>
+                <li class="item">
+                    <a class="link" style="font-size: 20px;" href="{% url 'seller:sellerlogout' %}">Logout</a>
+                </li>
+                
+                
+            </ul>
+            
+            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic" style="margin-right:250px;">
+                <div class="hamburger-box" style="color: black;">
+                  <div class="hamburger-inner"></div>
+                </div>
+            </a>
+            
+           
+    </nav><!-- End of Page Navbar -->
+
+
+ 
+        
+
+        
+<!-- page header -->
+<header id="home" class="header" style="background-image: url('static/assets/imgs/wallpaper2.jpg');">            
+    <div class="overlay">        
+        <br><br><br><br>
+            <form action = "" method = "post" enctype="multipart/form-data" 
+               style="margin-left: 480px;font-size: 25px;">
+            {% csrf_token %}
+            <table>
+                <tr>{{form.as_table}}</tr>
+            </table>
+            <br>
+            <input type="submit" value="Back" style="margin-left: 250px;">
+            <span><input type="submit" value="Save"></span>
+        </form> 
+        
+    </div> 
+</header>
+<!-- end of page header -->
+         
+<br><br><br><br>
+{% for msg in messages %}
+    {{msg}}
+{% endfor %}
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+    
+
+
+
+    <!-- core  -->
+    <script src="{% static 'assets/vendors/jquery/jquery-3.4.1.js' %}"></script>
+    <script src="{% static 'assets/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+
+    <!-- bootstrap 3 affix -->
+	<script src="{% static 'assets/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+
+    <!-- Meyawo js -->
+    <script src="{% static 'assets/js/meyawo.js' %}"></script>
+    
+</body>
+</html>
+
+
+
+
+   

@@ -1,0 +1,96 @@
+{% extends 'buyerbase.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<!-- page header -->
+<header id="home" class="header" >           
+            
+        <img src="{% static 'assets/imgs/wallpaper6.jpg' %}" alt="imgs" style="width: 100%;
+        height: 100%;
+        object-fit: cover;" >
+    
+</header>
+<!-- end of page header -->
+<br><br>
+   
+
+  
+    <!-- portfolio section -->
+    <section class="section" id="categories">
+        <div class="container text-center">
+            <p class="section-subtitle"></p>
+            <h6 class="section-title mb-6">Categories</h6>
+            <!-- row -->
+            <div class="row">
+                {% for category in category %}
+                <div class="col-md-4" >
+                        <a href="{% url 'costomer:readcategory' category.id user.id %}" style="color: black;" class="portfolio-card">
+                        
+                        
+                        <img src="{{category.Image.url}}" class="portfolio-card-img" style="height: 250px;" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">    
+                        <span class="portfolio-card-overlay">
+                            <span class="portfolio-card-caption">
+                                <h5>{{category.Name}}</h5>
+                                <p class="font-weight-normal"></p>
+                            </span>                         
+                        </span>                     
+                    </a>
+                </div>
+                {% endfor %}
+                
+            </div><!-- end of row -->
+        </div><!-- end of container -->
+    </section> <!-- end of portfolio section -->
+
+<br><br><br>
+
+    <!-- about section -->
+    <section class="section pt-0" id="about">
+        <!-- container -->
+        <div class="container text-center">
+            <!-- about wrapper -->
+            <div class="about">
+                <div class="about-img-holder">
+                    <img src="{% static 'assets/imgs/wallpaper3.jpg' %}" class="about-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                </div>
+                <div class="about-caption">
+                    <p class="section-subtitle"></p>
+                    <br><br><br>
+                    <h2 class="section-title mb-3">About Critterville</h2>
+                    <p>
+                        Critterville welcomes you to the ultimate online community for pet lovers! Our primary goal is to create a platform that connects pet owners worldwide, providing a broad range of services to support and enhance the well-being of their beloved pets.
+                        <br><br>
+                        At Critterville, we recognize that pets are not just animals but family members; therefore, we want to ensure they receive the best possible care. Our services are specifically designed to provide a wide range of resources for pet owners, including valuable advice, support, and tools that can assist pet owners in finding and connecting with other pet lovers.
+                        <br><br>
+                        Critterville also offers the Find Pets for Adoption service, which enables pet owners to search for a new furry friend to bring into their family. This service makes it easier to find and connect with pets available for adoption in your local area, providing a loving home for needy animals.
+                        <br><br>
+                        At Critterville, we are committed to providing the best possible service to our community of pet lovers. Our team is dedicated to offering a seamless experience and continuously updating our platform with exciting new features. 
+                        <br><br>
+                        Join Critterville today and become part of our pet-loving community!
+                        <br><br>
+                        Best,
+                        <br>
+                        Critterville Team
+
+             
+                    </p>
+                    <a href="{% url 'costomer:userlogin' %}"><button class="btn-rounded btn btn-outline-primary mt-4">Join Now</button></a>
+                </div>              
+            </div><!-- end of about wrapper -->
+        </div><!-- end of container -->
+    </section> <!-- end of about section -->
+
+    
+
+
+{% endblock %}
+   
+     
+    
+
+    
+
+
+   

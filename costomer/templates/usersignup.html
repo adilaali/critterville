@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}SignUp | {% endblock %}
+
+{% block content %}
+
+
+<br><br><br>
+<br><br><br>
+<br><br>
+
+
+
+    <!--================login_part Area =================-->
+    <section class="login_part section_padding ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6" style="border: .25px solid black; margin-left: 300px; height: 470px; width:600px;">
+                    <div class="login_part_form">
+                        <div class="login_part_form_iner">
+                            <h3 style="margin-top: 20px; margin-left: 220px;">SignUp</h3><br>
+
+                                <form class="row contact_form" action="" method="post">
+                                    {% csrf_token %}
+                                    <div class="col-md-12 form-group p_star">
+                                        <input type="text" class="form-control" name="FirstName"
+                                            placeholder="Firstname" required id="FirstName">
+                                    </div>
+                                    <div class="col-md-12 form-group p_star">
+                                        <input type="text" class="form-control" name="LastName"
+                                            placeholder="Lastname" required id="LastName">
+                                    </div>
+                                    <div class="col-md-12 form-group p_star">
+                                        <input type="text" class="form-control" name="Phone_Number"
+                                            placeholder="Phone number" required id="Phone_Number">
+                                    </div>
+                                    <div class="col-md-12 form-group p_star">
+                                        <input type="email" class="form-control" name="Email"
+                                            placeholder="EmailId" required id="Email">
+                                    </div>
+                                    <div class="col-md-12 form-group p_star">
+                                        <input type="password" class="form-control" name="Pass_word"
+                                            placeholder="Password" required id="Pass_word">
+                                    </div>
+                                    <div class="col-md-12 form-group p_star">
+                                        <input type="password" class="form-control" name="ConfirmPassword"
+                                            placeholder="Confirm Password" required id="ConfirmPassword">
+                                    </div>
+                                    <div class="col-md-12 form-group">
+                                        
+                                        <button type="submit" value="submit" class="btn_3" style="margin-left: 250px;">
+                                            SignUp
+                                        </button>
+                                        
+                                    </div>
+                                </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <!--================login_part end =================-->
+</main>
+
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+
+
+<br><br><br>
+<br><br><br>
+
+
+
+    
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{% endblock %}
+{% block content %}
+<br><br><br><br>
+<br>
+
+    <!-- contact section -->
+    <section class="section" id="contact">
+        <div class="container text-center">
+            <p class="section-subtitle">How can you communicate?</p>
+            <h6 class="section-title mb-5">Contact Me</h6>
+            <!-- contact form -->
+            <form action="{% url 'costomer:mail' %}" class="contact-form col-md-10 col-lg-8 m-auto" method="post">
+               {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                        <input type="text" id="contact_name" size="50" class="form-control" placeholder="Your Name" required/>                 
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <input type="email" id="contact_email" class="form-control" placeholder="Enter Email" requried/>                 
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <textarea id="contact_message" name="comment"  rows="6"   class="form-control" placeholder="Write Something" required></textarea>
+                    </div>
+                    <div class="form-group col-sm-12 mt-3">
+                        <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">                  
+                    </div>
+                </div>
+                 
+            </form><!-- end of contact form -->
+        </div><!-- end of container -->
+    </section><!-- end of contact section -->
+
+<br><br><br>
+<br><br>
+{% endblock %}

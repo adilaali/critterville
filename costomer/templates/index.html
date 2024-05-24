@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{% endblock %}
+{% block content %}
+
+
+
+<!-- page header -->
+<header id="home" class="header" style="background-image: url('static/assets/imgs/wallpaper2.jpg');">            
+    <div class="overlay">        
+        <div class="header-content container" style="max-width:1000px; margin-top: 300px;">
+            <h1 class="header-title" style="font-size:75px; ">Welcome to Critterville..
+            </h1><br>
+            <p class="header-subtitle" style="font-size: 45px; margin-left: 50px;">Find your bestfriend here!!</p>            
+            <a href="{% url 'costomer:userlogin' %}"><button class="btn btn-primary" style="margin-left: 350px;">Get Started</button></a>
+        </div>
+    </div> 
+</header>
+<!-- end of page header -->
+   
+
+   <!-- about section -->
+    <section class="section pt-0" id="about">
+        <!-- container -->
+        <div class="container text-center">
+            <!-- about wrapper -->
+            <div class="about">
+                <div class="about-img-holder">
+                    <img src="{% static 'assets/imgs/wallpaper3.jpg' %}" class="about-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                </div>
+                <div class="about-caption">
+                    <p class="section-subtitle"></p>
+                    <br><br><br>
+                    <h2 class="section-title mb-3">About Critterville</h2>
+                    <p>
+                        Critterville welcomes you to the ultimate online community for pet lovers! Our primary goal is to create a platform that connects pet owners worldwide, providing a broad range of services to support and enhance the well-being of their beloved pets.
+                        <br><br>
+                        At Critterville, we recognize that pets are not just animals but family members; therefore, we want to ensure they receive the best possible care.
+                        <br><br>
+                        At Critterville, we are committed to providing the best possible service to our community of pet lovers. Our team is dedicated to offering a seamless experience and continuously updating our platform with exciting new features. 
+                        <br><br>
+                        Join Critterville today and become part of our pet-loving community!
+                        <br><br>
+                        Best,
+                        <br>
+                        Critterville
+
+             
+                    </p>
+                    <a href="{% url 'costomer:userlogin' %}"><button class="btn-rounded btn btn-outline-primary mt-4">Join Now</button></a>
+                </div>              
+            </div><!-- end of about wrapper -->
+        </div><!-- end of container -->
+    </section> <!-- end of about section -->
+
+    
+    
+
+{% endblock %}

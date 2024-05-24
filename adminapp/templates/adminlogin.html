@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Admin{% block title %}{% endblock %}</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}">
+    <!-- Bootstrap + Meyawo main styles -->
+    <link rel="stylesheet" href="{% static 'assets/css/meyawo.css' %}">
+    <style>
+        
+         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'poppins',sans-serif;
+        }
+        section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            width: 100%;
+            
+            background-image: url('static/assets/imgs/wallpaper.jpg');
+            background-position: center;
+            background-size: cover;
+        }
+        .form-box{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background: transparent;
+            border: 2px solid rgba(165, 149, 223, 0.5);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        h2{
+            font-size: 2em;
+            color:#fff;
+            text-align: center;
+            margin-top: 0px;
+        }
+        .inputbox{
+            position: relative;
+            margin: 30px 0;
+            width: 310px;
+            border-bottom: 2px solid #fff;
+        }
+        .inputbox label{
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 1em;
+            pointer-events: none;
+            transition: .5s;
+        }
+        input:focus ~ label,
+        input:valid ~ label{
+        top: -5px;
+        }
+        .inputbox input {
+            width: 100%;
+            height: 50px;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 1em;
+            padding:0 35px 0 5px;
+            color: #fff;
+        }
+        .inputbox ion-icon{
+            position: absolute;
+            right: 8px;
+            color: #fff;
+            font-size: 1.2em;
+            top: 20px;
+        }
+        .forget{
+            margin: -15px 0 15px ;
+            font-size: .9em;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;  
+        }
+        
+        .forget label input{
+            margin-right: 3px;
+            
+        }
+        .forget label a{
+            color: #fff;
+            text-decoration: none;
+        }
+        .forget label a:hover{
+            text-decoration: underline;
+        }
+        button{
+            width: 100%;
+            height: 40px;
+            border-radius: 40px;
+            background: #fff;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+        }
+        .register{
+            font-size: .9em;
+            color: #fff;
+            text-align: center;
+            margin: 25px 0 10px;
+        }
+        .register p a{
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+        }
+        .register p a:hover{
+            text-decoration: underline;
+        }
+    </style>
+  
+</head>
+<body>
+    {% for msg in messages %}
+        {{msg}}
+    {% endfor %}
+
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="" method="POST">
+                    <h2> Admin Login</h2>
+                
+                    {% csrf_token%}
+                    <div class="inputbox">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <input type="username" placeholder="UserName" name="UserName" required id="id_UserName">
+                        
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" placeholder="Password" name="Password" required id="Password">
+                        
+                    </div>
+                    
+                    <button>Submit</button>
+                    
+                </form>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

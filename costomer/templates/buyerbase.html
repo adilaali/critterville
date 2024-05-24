@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <style>
+    .dropdown {
+    position: relative;
+    display: inline-block;
+    }
+
+    .dropdown-content {
+    display: none;
+    position:absolute;
+    width:150px;
+    z-index: 1;
+    background-color: rgb(156, 182, 207);
+    }
+
+    .dropdown:hover .dropdown-content {
+    display: block;
+    }
+
+    .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 30px;
+    font-size: 16px;
+    border: none;
+    }
+
+    .dropdown-content a {
+    color: white;
+    padding: 5px 5px;
+    text-decoration: none;
+    display: block;
+    }
+
+    .dropdown-content a:hover {
+    background-color: #f1f1f1;
+    }
+
+    .rounded-button {
+        width: 60px;
+        height: 60px;
+        background:white;
+        color: black;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border-radius: 50%;
+        border: 1 px dashed black;
+        text-decoration: none;
+        transition: background 0.2s;
+        margin-left: 700px;
+    }
+    
+    .rounded-button:hover {
+        background: #00866c;
+    }
+
+    .icon{
+        font-size: 25px;
+        color: white;
+        margin-right: 190;
+        font-weight: 800;
+    }
+  </style>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    <title>{% block title %}Welcome to Critterville{% endblock %}</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}">
+    <!-- Bootstrap + Meyawo main styles -->
+	<link rel="stylesheet" href="{% static 'assets/css/meyawo.css' %}">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- Page Navbar -->
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20" style="background-color:rgb(156, 182, 207); height:70px;">
+        
+            <a class="logo" href="#" style="font-size: 40px; margin-left: 150px;">Critterville</a>         
+            <ul class="nav">
+                <li class="item">
+                    <a class="active-menu" style="font-size: 20px;" href="#">Home</a>
+                </li>
+                <li class="item">
+                    <a class="link" style="font-size: 20px;" href="#categories" >Categories</a>
+                </li>
+                <li class="item">
+                    <a class="link" style="font-size: 20px;" href="#about" >About Us</a>
+                </li>
+                <li class="item">
+                    <a class="link" style="font-size: 20px;" href="{% url 'costomer:mail' %}">Contact Us</a>
+                </li>
+                <li class="item">
+                    <div class="dropdown">
+                        <a class="link" style="font-size: 20px;" href="#">Settings</a>
+                        <div class="dropdown-content" style="border:1px solid rgb(76, 110, 139);">
+                            
+                            <a href="{% url 'costomer:viewprofile' user.id %}" style="font-size: 15px;">View profile</a>
+                            <a href="{% url 'costomer:changepasswordbuyer' user.id %}" style="font-size: 15px;">Change Password</a>    
+                            
+                        </div>
+                    </div>     
+                </li>
+                <li class="item">
+                    <a class="link" style="font-size: 20px;" href="{% url 'costomer:buyerlogout' %}">Logout</a>
+                </li>
+                
+                
+            </ul>
+            
+            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic" style="margin-right:250px;">
+                <div class="hamburger-box" style="color: black;">
+                  <div class="hamburger-inner"></div>
+                </div>
+            </a>
+            
+           
+    </nav><!-- End of Page Navbar -->
+
+
+{% block content %}
+
+{% endblock %}
+
+
+ <!-- footer -->
+ <div class="container">
+    <footer class="footer">       
+        <p class="mb-0">Copyright <script>document.write(new Date().getFullYear())</script> &copy; <a href="http://www.devcrud.com">DevCRUD</a></p>
+        <div class="social-links text-right m-auto ml-sm-auto">
+            <a href="javascript:void(0)" class="link"><i class="ti-facebook"></i></a>
+            <a href="javascript:void(0)" class="link"><i class="ti-twitter-alt"></i></a>
+            <a href="javascript:void(0)" class="link"><i class="ti-google"></i></a>
+            <a href="javascript:void(0)" class="link"><i class="ti-pinterest-alt"></i></a>
+            <a href="javascript:void(0)" class="link"><i class="ti-instagram"></i></a>
+            <a href="javascript:void(0)" class="link"><i class="ti-rss"></i></a>
+        </div>
+    </footer>
+</div> <!-- end of page footer -->
+
+<!-- core  -->
+<script src="{% static 'assets/vendors/jquery/jquery-3.4.1.js' %}"></script>
+<script src="{% static 'assets/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+
+<!-- bootstrap 3 affix -->
+<script src="{% static 'assets/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+
+<!-- Meyawo js -->
+<script src="{% static 'assets/js/meyawo.js' %}"></script>
+
+</body>
+</html>
